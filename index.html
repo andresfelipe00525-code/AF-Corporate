@@ -141,21 +141,22 @@ html.light .skb{background:rgba(0,0,0,.04)}
 
 /* ═══════════ PROJECTS ═══════════ */
 .pj-g{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.pj{background:var(--bg2);border:1px solid var(--b);border-radius:var(--r-lg);overflow:hidden;
-  transition:transform .3s var(--ease),box-shadow .3s,border-color .25s}
-.pj:hover{transform:translateY(-6px);box-shadow:0 24px 80px rgba(0,0,0,.4);border-color:var(--bh)}
-html.light .pj:hover{box-shadow:0 16px 48px rgba(0,0,0,.12)}
+.pj{background:var(--bg2);border:1px solid var(--b);border-radius:var(--r-lg);overflow:hidden;transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1),border-color .3s}
+.pj:hover{transform:translateY(-10px);box-shadow:0 40px 100px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.09);border-color:rgba(255,255,255,.14)}
+html.light .pj:hover{box-shadow:0 20px 60px rgba(0,0,0,.12),0 0 0 1px rgba(0,0,0,.06)}
 
 /* 16:9 panoramic preview */
-.pji{width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--bg);display:block}
-.pji iframe{width:1440px;height:810px;border:none;pointer-events:none;transform-origin:top left;position:absolute;top:0;left:0}
-.pji .pvl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg1);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
-.pji .pvf{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
-/* Hover overlay */
-.pji::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.08);opacity:1;transition:opacity .3s;pointer-events:none;z-index:2}
-.pj:hover .pji::after{opacity:0}
+.pji{width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;background:linear-gradient(135deg,#0D0D0D 0%,#141414 100%)}
+.pji-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .75s cubic-bezier(.4,0,.2,1)}
+.pj:hover .pji-img{transform:scale(1.05)}
+.pji-ov{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0);transition:background .35s cubic-bezier(.4,0,.2,1)}
+.pj:hover .pji-ov{background:rgba(0,0,0,.5)}
+.pji-ov-a{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);color:#000;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.72rem 1.8rem;border-radius:8px;opacity:0;transform:translateY(14px) scale(.94);transition:opacity .3s .06s,transform .3s .06s;white-space:nowrap}
+.pj:hover .pji-ov-a{opacity:1;transform:translateY(0) scale(1)}
+.pji-fb{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;z-index:1}
 
-.pjb{padding:1.5rem 1.75rem}
+.pjnum{font-size:.65rem;font-weight:700;color:var(--t3);letter-spacing:.12em;font-family:var(--fh)}
+.pjb{padding:1.4rem 1.75rem 1.65rem}
 .pjt{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.45rem;gap:.5rem}
 .pjnm{font-family:var(--fh);font-size:1.08rem;font-weight:700;color:var(--t);letter-spacing:-.02em}
 .pjcat{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);font-weight:600;padding:.22rem .6rem;background:rgba(0,112,243,.1);border-radius:4px;white-space:nowrap;flex-shrink:0}
@@ -213,6 +214,9 @@ footer{background:var(--bg1);border-top:1px solid var(--b);padding:2.5rem 2rem;t
 @media(max-width:680px){.sk-g{grid-template-columns:1fr}.pj-g{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.htit,.htit-2{font-size:clamp(2.2rem,10vw,3rem)}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.proj-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,112,243,.08);border:1px solid rgba(0,112,243,.2);color:var(--ac);font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:6px 13px;border-radius:20px;margin-bottom:1rem}
+.proj-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--ac);flex-shrink:0;animation:pg 2s infinite}
 </style>
 </head>
 <body>
@@ -287,7 +291,7 @@ footer{background:var(--bg1);border-top:1px solid var(--b);padding:2.5rem 2rem;t
 <section id="about" class="s sg">
   <div class="si">
     <div class="metrics fi">
-      <div class="mc"><div class="mn">10+</div><div class="ml" data-es>Proyectos Entregados</div><div class="ml" data-en>Projects Delivered</div></div>
+      <div class="mc"><div class="mn">100+</div><div class="ml" data-es>Proyectos Entregados</div><div class="ml" data-en>Projects Delivered</div></div>
       <div class="mc"><div class="mn">2+</div><div class="ml" data-es>Años de Experiencia</div><div class="ml" data-en>Years Experience</div></div>
       <div class="mc"><div class="mn">100%</div><div class="ml" data-es>Compromiso Total</div><div class="ml" data-en>Client Commitment</div></div>
       <div class="mc"><div class="mn">C1</div><div class="ml">English Level</div></div>
@@ -388,109 +392,199 @@ footer{background:var(--bg1);border-top:1px solid var(--b);padding:2.5rem 2rem;t
 <section id="projects" class="s sg">
   <div class="si">
     <div class="sh fi">
-      <p class="sl" data-es>Portafolio</p><p class="sl" data-en>Portfolio</p>
+      <div class="proj-badge" data-es><span class="proj-badge-dot"></span>100+ Projects Delivered</div>
+      <div class="proj-badge" data-en><span class="proj-badge-dot"></span>100+ Projects Delivered</div>
       <h2 class="st" data-es>Proyectos en producción</h2><h2 class="st" data-en>Live Projects</h2>
-      <p class="ss" data-es>Aplicaciones reales desplegadas y funcionando para clientes.</p>
-      <p class="ss" data-en>Real applications deployed and running for clients.</p>
+      <p class="ss" data-es>Aplicaciones reales desplegadas y funcionando para clientes empresariales.</p>
+      <p class="ss" data-en>Real applications deployed and running for enterprise clients.</p>
     </div>
     <div class="pj-g">
-
       <article class="pj fi fi-1">
         <div class="pji">
-          <div class="pvl" data-es>Cargando…</div><div class="pvl" data-en>Loading…</div>
-          <iframe src="https://luneee.vercel.app/" loading="lazy" scrolling="no" title="Lune" onload="iL(this)" onerror="iF(this,'#0B0D11','#f0e8d8','LUNE')"></iframe>
-          <div class="pvf" style="background:#0B0D11"><p style="font-family:Space Grotesk,sans-serif;font-size:1.3rem;font-weight:800;color:#f0e8d8;letter-spacing:.08em">LUNE</p></div>
+          <img class="pji-img" src="https://image.thum.io/get/width/1200/crop/675/noanimate/https://luneee.vercel.app/" alt="Lune" loading="lazy"
+               onerror="pjFb(this,'#0B0D11','#f0e8d8','LUNE')"/>
+          <div class="pji-ov">
+            <a class="pji-ov-a" href="https://luneee.vercel.app/" target="_blank" rel="noopener" data-es>Ver Proyecto</a>
+            <a class="pji-ov-a" href="https://luneee.vercel.app/" target="_blank" rel="noopener" data-en>View Project</a>
+          </div>
+          <div class="pji-fb" style="background:#0B0D11">
+            <p style="font-family:Space Grotesk,sans-serif;font-size:1.2rem;font-weight:800;color:#f0e8d8;letter-spacing:.06em;text-align:center;padding:0 1rem">LUNE</p>
+            <a href="https://luneee.vercel.app/" target="_blank" style="font-size:.68rem;color:#f0e8d8;opacity:.5;letter-spacing:.1em;text-transform:uppercase">luneee.vercel.app/</a>
+          </div>
         </div>
         <div class="pjb">
-          <div class="pjt"><h3 class="pjnm">Lune</h3><span class="pjcat" data-es>Marca / Diseño</span><span class="pjcat" data-en>Brand / Design</span></div>
+          <div class="pjt">
+            <div>
+              <span class="pjcat" data-es>Marca / Diseño</span>
+              <span class="pjcat" data-en>Brand / Design</span>
+            </div>
+            <span class="pjnum">01</span>
+          </div>
+          <h3 class="pjnm">Lune</h3>
           <p class="pjd" data-es>Plataforma de marca con dark theme inmersivo, tipografía expresiva y UX premium centrada en el producto.</p>
           <p class="pjd" data-en>Brand platform with immersive dark theme, expressive typography, and premium product-centered UX.</p>
-          <div class="pjtg"><span class="ptg">React</span><span class="ptg">Tailwind</span><span class="ptg">Vite</span></div>
-          <a class="pjbtn" href="https://luneee.vercel.app/" target="_blank" rel="noopener" data-es>Ver proyecto</a>
-          <a class="pjbtn" href="https://luneee.vercel.app/" target="_blank" rel="noopener" data-en>View project</a>
+          <div class="pjft">
+            <div class="pjtg"><span class="ptg">React</span><span class="ptg">Tailwind</span><span class="ptg">Vite</span></div>
+            <a class="pjlnk" href="https://luneee.vercel.app/" target="_blank" rel="noopener" data-es>Ver</a>
+            <a class="pjlnk" href="https://luneee.vercel.app/" target="_blank" rel="noopener" data-en>View</a>
+          </div>
         </div>
       </article>
-
       <article class="pj fi fi-2">
         <div class="pji">
-          <div class="pvl" data-es>Cargando…</div><div class="pvl" data-en>Loading…</div>
-          <iframe src="https://llaverdeconcha.vercel.app/" loading="lazy" scrolling="no" title="La Verde Concha" onload="iL(this)" onerror="iF(this,'#0a1f0a','#a5d6a7','La Verde Concha')"></iframe>
-          <div class="pvf" style="background:#0a1f0a"><p style="font-family:Space Grotesk,sans-serif;font-size:1.1rem;font-weight:800;color:#a5d6a7">La Verde Concha</p></div>
+          <img class="pji-img" src="https://image.thum.io/get/width/1200/crop/675/noanimate/https://llaverdeconcha.vercel.app/" alt="La Verde Concha & Co." loading="lazy"
+               onerror="pjFb(this,'#0a1f0a','#a5d6a7','La Verde Concha')"/>
+          <div class="pji-ov">
+            <a class="pji-ov-a" href="https://llaverdeconcha.vercel.app/" target="_blank" rel="noopener" data-es>Ver Proyecto</a>
+            <a class="pji-ov-a" href="https://llaverdeconcha.vercel.app/" target="_blank" rel="noopener" data-en>View Project</a>
+          </div>
+          <div class="pji-fb" style="background:#0a1f0a">
+            <p style="font-family:Space Grotesk,sans-serif;font-size:1.2rem;font-weight:800;color:#a5d6a7;letter-spacing:.06em;text-align:center;padding:0 1rem">La Verde Concha</p>
+            <a href="https://llaverdeconcha.vercel.app/" target="_blank" style="font-size:.68rem;color:#a5d6a7;opacity:.5;letter-spacing:.1em;text-transform:uppercase">llaverdeconcha.vercel.app/</a>
+          </div>
         </div>
         <div class="pjb">
-          <div class="pjt"><h3 class="pjnm">La Verde Concha & Co.</h3><span class="pjcat" data-es>Restaurante</span><span class="pjcat" data-en>Restaurant</span></div>
+          <div class="pjt">
+            <div>
+              <span class="pjcat" data-es>Restaurante</span>
+              <span class="pjcat" data-en>Restaurant</span>
+            </div>
+            <span class="pjnum">02</span>
+          </div>
+          <h3 class="pjnm">La Verde Concha & Co.</h3>
           <p class="pjd" data-es>Sitio gastronómico completo con menú interactivo, identidad de marca y diseño evocador del mar.</p>
-          <p class="pjd" data-en>Full gastronomic site with interactive menu, brand identity, and a design evoking the sea.</p>
-          <div class="pjtg"><span class="ptg">React</span><span class="ptg">Tailwind</span><span class="ptg">Node.js</span></div>
-          <a class="pjbtn" href="https://llaverdeconcha.vercel.app/" target="_blank" rel="noopener" data-es>Ver proyecto</a>
-          <a class="pjbtn" href="https://llaverdeconcha.vercel.app/" target="_blank" rel="noopener" data-en>View project</a>
+          <p class="pjd" data-en>Full gastronomic site with interactive menu, brand identity and a design evoking the sea.</p>
+          <div class="pjft">
+            <div class="pjtg"><span class="ptg">React</span><span class="ptg">Tailwind</span><span class="ptg">Node.js</span></div>
+            <a class="pjlnk" href="https://llaverdeconcha.vercel.app/" target="_blank" rel="noopener" data-es>Ver</a>
+            <a class="pjlnk" href="https://llaverdeconcha.vercel.app/" target="_blank" rel="noopener" data-en>View</a>
+          </div>
         </div>
       </article>
-
       <article class="pj fi fi-3">
         <div class="pji">
-          <div class="pvl" data-es>Cargando…</div><div class="pvl" data-en>Loading…</div>
-          <iframe src="https://alzheimer-henna.vercel.app/" loading="lazy" scrolling="no" title="Alzheimer Analytics" onload="iL(this)" onerror="iF(this,'#030d1c','#90caf9','Alzheimer Analytics')"></iframe>
-          <div class="pvf" style="background:#030d1c"><p style="font-family:Space Grotesk,sans-serif;font-size:1rem;font-weight:800;color:#90caf9">Alzheimer Analytics</p></div>
+          <img class="pji-img" src="https://image.thum.io/get/width/1200/crop/675/noanimate/https://alzheimer-henna.vercel.app/" alt="Alzheimer Analytics" loading="lazy"
+               onerror="pjFb(this,'#030d1c','#90caf9','Alzheimer Analytics')"/>
+          <div class="pji-ov">
+            <a class="pji-ov-a" href="https://alzheimer-henna.vercel.app/" target="_blank" rel="noopener" data-es>Ver Proyecto</a>
+            <a class="pji-ov-a" href="https://alzheimer-henna.vercel.app/" target="_blank" rel="noopener" data-en>View Project</a>
+          </div>
+          <div class="pji-fb" style="background:#030d1c">
+            <p style="font-family:Space Grotesk,sans-serif;font-size:1.2rem;font-weight:800;color:#90caf9;letter-spacing:.06em;text-align:center;padding:0 1rem">Alzheimer Analytics</p>
+            <a href="https://alzheimer-henna.vercel.app/" target="_blank" style="font-size:.68rem;color:#90caf9;opacity:.5;letter-spacing:.1em;text-transform:uppercase">alzheimer-henna.vercel.app/</a>
+          </div>
         </div>
         <div class="pjb">
-          <div class="pjt"><h3 class="pjnm">Alzheimer Analytics</h3><span class="pjcat">Dashboard</span></div>
+          <div class="pjt">
+            <div>
+              <span class="pjcat" data-es>Dashboard</span>
+              <span class="pjcat" data-en>Dashboard</span>
+            </div>
+            <span class="pjnum">03</span>
+          </div>
+          <h3 class="pjnm">Alzheimer Analytics</h3>
           <p class="pjd" data-es>Dashboard interactivo con visualizaciones dinámicas y análisis de datos clínicos procesados con Python.</p>
           <p class="pjd" data-en>Interactive dashboard with dynamic visualizations and clinical data analysis processed with Python.</p>
-          <div class="pjtg"><span class="ptg">React</span><span class="ptg">Recharts</span><span class="ptg">Python</span></div>
-          <a class="pjbtn" href="https://alzheimer-henna.vercel.app/" target="_blank" rel="noopener" data-es>Ver proyecto</a>
-          <a class="pjbtn" href="https://alzheimer-henna.vercel.app/" target="_blank" rel="noopener" data-en>View project</a>
+          <div class="pjft">
+            <div class="pjtg"><span class="ptg">React</span><span class="ptg">Recharts</span><span class="ptg">Python</span></div>
+            <a class="pjlnk" href="https://alzheimer-henna.vercel.app/" target="_blank" rel="noopener" data-es>Ver</a>
+            <a class="pjlnk" href="https://alzheimer-henna.vercel.app/" target="_blank" rel="noopener" data-en>View</a>
+          </div>
         </div>
       </article>
-
       <article class="pj fi fi-4">
         <div class="pji">
-          <div class="pvl" data-es>Cargando…</div><div class="pvl" data-en>Loading…</div>
-          <iframe src="https://heriitage.vercel.app/" loading="lazy" scrolling="no" title="Heritage" onload="iL(this)" onerror="iF(this,'#130c03','#f5deb3','Heritage')"></iframe>
-          <div class="pvf" style="background:#130c03"><p style="font-family:Space Grotesk,sans-serif;font-size:1.3rem;font-weight:800;color:#f5deb3;letter-spacing:.06em">Heritage</p></div>
+          <img class="pji-img" src="https://image.thum.io/get/width/1200/crop/675/noanimate/https://heriitage.vercel.app/" alt="Heritage" loading="lazy"
+               onerror="pjFb(this,'#130c03','#f5deb3','Heritage')"/>
+          <div class="pji-ov">
+            <a class="pji-ov-a" href="https://heriitage.vercel.app/" target="_blank" rel="noopener" data-es>Ver Proyecto</a>
+            <a class="pji-ov-a" href="https://heriitage.vercel.app/" target="_blank" rel="noopener" data-en>View Project</a>
+          </div>
+          <div class="pji-fb" style="background:#130c03">
+            <p style="font-family:Space Grotesk,sans-serif;font-size:1.2rem;font-weight:800;color:#f5deb3;letter-spacing:.06em;text-align:center;padding:0 1rem">Heritage</p>
+            <a href="https://heriitage.vercel.app/" target="_blank" style="font-size:.68rem;color:#f5deb3;opacity:.5;letter-spacing:.1em;text-transform:uppercase">heriitage.vercel.app/</a>
+          </div>
         </div>
         <div class="pjb">
-          <div class="pjt"><h3 class="pjnm">Heritage</h3><span class="pjcat" data-es>Plataforma Cultural</span><span class="pjcat" data-en>Cultural Platform</span></div>
+          <div class="pjt">
+            <div>
+              <span class="pjcat" data-es>Plataforma Cultural</span>
+              <span class="pjcat" data-en>Cultural Platform</span>
+            </div>
+            <span class="pjnum">04</span>
+          </div>
+          <h3 class="pjnm">Heritage</h3>
           <p class="pjd" data-es>Plataforma cultural fullstack que conecta usuarios con lugares, historias y arte de valor patrimonial.</p>
-          <p class="pjd" data-en>Fullstack cultural platform connecting users with heritage places, stories, and art.</p>
-          <div class="pjtg"><span class="ptg">React</span><span class="ptg">Node.js</span><span class="ptg">Tailwind</span></div>
-          <a class="pjbtn" href="https://heriitage.vercel.app/" target="_blank" rel="noopener" data-es>Ver proyecto</a>
-          <a class="pjbtn" href="https://heriitage.vercel.app/" target="_blank" rel="noopener" data-en>View project</a>
+          <p class="pjd" data-en>Fullstack cultural platform connecting users with heritage places, stories and art.</p>
+          <div class="pjft">
+            <div class="pjtg"><span class="ptg">React</span><span class="ptg">Node.js</span><span class="ptg">Tailwind</span></div>
+            <a class="pjlnk" href="https://heriitage.vercel.app/" target="_blank" rel="noopener" data-es>Ver</a>
+            <a class="pjlnk" href="https://heriitage.vercel.app/" target="_blank" rel="noopener" data-en>View</a>
+          </div>
         </div>
       </article>
-
       <article class="pj fi fi-1">
         <div class="pji">
-          <div class="pvl" data-es>Cargando…</div><div class="pvl" data-en>Loading…</div>
-          <iframe src="https://healtcaree.vercel.app/" loading="lazy" scrolling="no" title="Corporate Health" onload="iL(this)" onerror="iF(this,'#061628','#60a5fa','Corporate Health')"></iframe>
-          <div class="pvf" style="background:#061628"><p style="font-family:Space Grotesk,sans-serif;font-size:1.1rem;font-weight:800;color:#60a5fa">Corporate Health</p></div>
+          <img class="pji-img" src="https://image.thum.io/get/width/1200/crop/675/noanimate/https://healtcaree.vercel.app/" alt="Corporate Health" loading="lazy"
+               onerror="pjFb(this,'#061628','#60a5fa','Corporate Health')"/>
+          <div class="pji-ov">
+            <a class="pji-ov-a" href="https://healtcaree.vercel.app/" target="_blank" rel="noopener" data-es>Ver Proyecto</a>
+            <a class="pji-ov-a" href="https://healtcaree.vercel.app/" target="_blank" rel="noopener" data-en>View Project</a>
+          </div>
+          <div class="pji-fb" style="background:#061628">
+            <p style="font-family:Space Grotesk,sans-serif;font-size:1.2rem;font-weight:800;color:#60a5fa;letter-spacing:.06em;text-align:center;padding:0 1rem">Corporate Health</p>
+            <a href="https://healtcaree.vercel.app/" target="_blank" style="font-size:.68rem;color:#60a5fa;opacity:.5;letter-spacing:.1em;text-transform:uppercase">healtcaree.vercel.app/</a>
+          </div>
         </div>
         <div class="pjb">
-          <div class="pjt"><h3 class="pjnm">Corporate Health</h3><span class="pjcat" data-es>Corporativo</span><span class="pjcat" data-en>Corporate</span></div>
-          <p class="pjd" data-es>Portafolio ejecutivo con diseño corporativo premium, navegación fluida y presentación de servicios profesionales.</p>
-          <p class="pjd" data-en>Executive portfolio with premium corporate design, smooth navigation, and professional services presentation.</p>
-          <div class="pjtg"><span class="ptg">React</span><span class="ptg">Vite</span><span class="ptg">Tailwind</span></div>
-          <a class="pjbtn" href="https://healtcaree.vercel.app/" target="_blank" rel="noopener" data-es>Ver proyecto</a>
-          <a class="pjbtn" href="https://healtcaree.vercel.app/" target="_blank" rel="noopener" data-en>View project</a>
+          <div class="pjt">
+            <div>
+              <span class="pjcat" data-es>Corporativo</span>
+              <span class="pjcat" data-en>Corporate</span>
+            </div>
+            <span class="pjnum">05</span>
+          </div>
+          <h3 class="pjnm">Corporate Health</h3>
+          <p class="pjd" data-es>Portafolio ejecutivo con diseño corporativo premium, navegación fluida y presentación de servicios.</p>
+          <p class="pjd" data-en>Executive portfolio with premium corporate design, smooth navigation and professional services.</p>
+          <div class="pjft">
+            <div class="pjtg"><span class="ptg">React</span><span class="ptg">Vite</span><span class="ptg">Tailwind</span></div>
+            <a class="pjlnk" href="https://healtcaree.vercel.app/" target="_blank" rel="noopener" data-es>Ver</a>
+            <a class="pjlnk" href="https://healtcaree.vercel.app/" target="_blank" rel="noopener" data-en>View</a>
+          </div>
         </div>
       </article>
-
       <article class="pj fi fi-2">
         <div class="pji">
-          <div class="pvl" data-es>Cargando…</div><div class="pvl" data-en>Loading…</div>
-          <iframe src="https://finalboking.vercel.app/" loading="lazy" scrolling="no" title="Booking App" onload="iL(this)" onerror="iF(this,'#1a0a2e','#c4b5fd','Booking App')"></iframe>
-          <div class="pvf" style="background:#1a0a2e"><p style="font-family:Space Grotesk,sans-serif;font-size:1.2rem;font-weight:800;color:#c4b5fd">Booking App</p></div>
+          <img class="pji-img" src="https://image.thum.io/get/width/1200/crop/675/noanimate/https://finalboking.vercel.app/" alt="Booking App" loading="lazy"
+               onerror="pjFb(this,'#1a0a2e','#c4b5fd','Booking App')"/>
+          <div class="pji-ov">
+            <a class="pji-ov-a" href="https://finalboking.vercel.app/" target="_blank" rel="noopener" data-es>Ver Proyecto</a>
+            <a class="pji-ov-a" href="https://finalboking.vercel.app/" target="_blank" rel="noopener" data-en>View Project</a>
+          </div>
+          <div class="pji-fb" style="background:#1a0a2e">
+            <p style="font-family:Space Grotesk,sans-serif;font-size:1.2rem;font-weight:800;color:#c4b5fd;letter-spacing:.06em;text-align:center;padding:0 1rem">Booking App</p>
+            <a href="https://finalboking.vercel.app/" target="_blank" style="font-size:.68rem;color:#c4b5fd;opacity:.5;letter-spacing:.1em;text-transform:uppercase">finalboking.vercel.app/</a>
+          </div>
         </div>
         <div class="pjb">
-          <div class="pjt"><h3 class="pjnm">Booking App</h3><span class="pjcat" data-es>Reservas</span><span class="pjcat" data-en>Bookings</span></div>
-          <p class="pjd" data-es>Sistema completo de reservas hoteleras con gestión de disponibilidad, flujo de pago y confirmaciones automáticas.</p>
-          <p class="pjd" data-en>Complete hotel booking system with availability management, payment flow, and automatic confirmations.</p>
-          <div class="pjtg"><span class="ptg">React</span><span class="ptg">REST API</span><span class="ptg">CSS</span></div>
-          <a class="pjbtn" href="https://finalboking.vercel.app/" target="_blank" rel="noopener" data-es>Ver proyecto</a>
-          <a class="pjbtn" href="https://finalboking.vercel.app/" target="_blank" rel="noopener" data-en>View project</a>
+          <div class="pjt">
+            <div>
+              <span class="pjcat" data-es>Reservas</span>
+              <span class="pjcat" data-en>Bookings</span>
+            </div>
+            <span class="pjnum">06</span>
+          </div>
+          <h3 class="pjnm">Booking App</h3>
+          <p class="pjd" data-es>Sistema completo de reservas hoteleras con gestión de disponibilidad, flujo de pago y confirmaciones.</p>
+          <p class="pjd" data-en>Complete hotel booking system with availability management, payment flow and confirmations.</p>
+          <div class="pjft">
+            <div class="pjtg"><span class="ptg">React</span><span class="ptg">REST API</span><span class="ptg">CSS</span></div>
+            <a class="pjlnk" href="https://finalboking.vercel.app/" target="_blank" rel="noopener" data-es>Ver</a>
+            <a class="pjlnk" href="https://finalboking.vercel.app/" target="_blank" rel="noopener" data-en>View</a>
+          </div>
         </div>
       </article>
-
     </div>
   </div>
 </section>
@@ -604,7 +698,8 @@ function sI(){
   });
 }
 window.addEventListener('DOMContentLoaded',sI);window.addEventListener('resize',sI);
-function iL(f){f.closest('.pji').querySelectorAll('.pvl').forEach(l=>l.style.display='none')}
+function pjFb(img,bg,fg,t){img.style.display='none';const fb=img.closest('.pji').querySelector('.pji-fb');if(fb)fb.style.display='flex'}
+function iL(f){if(f&&f.closest){f.closest('.pji')&&f.closest('.pji').querySelectorAll('.pvl').forEach(l=>l.style.display='none')}}
 function iF(f,bg,fg,t){iL(f);f.style.display='none';const b=f.closest('.pji').querySelector('.pvf');if(b)b.style.display='flex'}
 /* Scroll anim */
 new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');this.unobserve?this.unobserve(e.target):null}})},{threshold:.1}).observe&&
